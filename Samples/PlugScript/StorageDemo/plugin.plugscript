@@ -1,0 +1,27 @@
+// StorageDemo：插件私有存储示例
+// 位置：PCL\Plugin\StorageDemo\plugin.plugscript
+
+function on_first_launch() {
+   UI.type = "new_window"
+   UI.title = "存储示例"
+   UI.width = 640
+   UI.height = 420
+   UI.FileSize = 5
+}
+
+function main() {
+   const counterFile = "counter.txt"
+
+   if Storage.exists(counterFile) {
+      let last = Storage.read(counterFile)
+      print("上次记录：" + last)
+      Storage.write(counterFile, "再次启动")
+   } else {
+      Storage.write(counterFile, "首次启动")
+      print("已创建 " + counterFile)
+   }
+
+   let files = Storage.list()
+   print("插件存储目录中的文件：")
+   print(files)
+}

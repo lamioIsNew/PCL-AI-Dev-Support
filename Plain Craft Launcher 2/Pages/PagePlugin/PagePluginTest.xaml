@@ -17,6 +17,18 @@
                     </StackPanel>
                 </StackPanel>
             </local:MyCard>
+            <local:MyCard Margin="0,0,0,15" Title="PlugScript 自检">
+                <StackPanel Margin="25,42,25,22">
+                    <TextBlock Text="解释器内置自检" FontSize="15" FontWeight="Bold" />
+                    <TextBlock Margin="0,8,0,0" LineHeight="19" TextWrapping="Wrap" Foreground="{DynamicResource ColorBrushGray2}"
+                               Text="运行 PlugScript 解释器的内置自检用例，检查语法解析、表达式、island、权限声明与存储委托是否正常。自检不依赖插件目录。" />
+                    <StackPanel Orientation="Horizontal" Height="35" Margin="0,16,0,0">
+                        <local:MyButton x:Name="BtnPlugScriptSelfTest" MinWidth="170" Text="运行 PlugScript 自检" Padding="13,0" ColorType="Highlight" />
+                    </StackPanel>
+                    <TextBlock x:Name="TxtPlugScriptSelfTestResult" Margin="0,14,0,0" FontFamily="Consolas" FontSize="12"
+                               TextWrapping="Wrap" LineHeight="18" Foreground="{DynamicResource ColorBrushGray2}" />
+                </StackPanel>
+            </local:MyCard>
         </StackPanel>
     </local:MyScrollViewer>
 </local:MyPageRight>

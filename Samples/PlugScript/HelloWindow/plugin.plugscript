@@ -1,0 +1,14 @@
+// HelloWindow：最小可运行插件示例
+// 位置：PCL\Plugin\HelloWindow\plugin.plugscript
+
+function on_first_launch() {
+   UI.type = "new_window"
+   UI.title = "Hello PlugScript"
+   UI.width = 720
+   UI.height = 460
+   UI.FileSize = 20
+}
+
+function main() {
+   print("Hello from HelloWindow!")
+}

@@ -6,13 +6,22 @@
     PanScroll="PanBack">
     <local:MyScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" x:Name="PanBack">
         <StackPanel Margin="25,10">
-            <local:MyCard Margin="0,15" Title="插件">
+            <local:MyCard Margin="0,15" Title="插件目录">
                 <StackPanel Margin="25,42,25,22">
-                    <TextBlock Text="插件功能正在开发中" FontSize="17" FontWeight="Bold" />
+                    <TextBlock Text="PlugScript 插件" FontSize="17" FontWeight="Bold" />
                     <TextBlock Margin="0,8,0,0" LineHeight="19" TextWrapping="Wrap" Foreground="{DynamicResource ColorBrushGray2}"
-                               Text="这里是 PCL - DTA 的插件列表。当前版本已支持动态加载并挂载插件 UI、弹出 PCL 风格子窗口；插件浏览、安装、启用和配置等能力会在后续 TODO 更新后逐步实现。" />
+                               Text="把插件文件夹放到下面的目录中，每个插件使用一个子文件夹，并在其中放置 plugin.plugscript。宿主会读取 on_first_launch() 声明 UI 与权限，并在点击“运行 main”时执行插件逻辑。" />
+                    <TextBlock x:Name="LabPluginPath" Margin="0,10,0,0" FontFamily="Consolas" TextWrapping="Wrap"
+                               Foreground="{DynamicResource ColorBrushGray2}" />
+                    <StackPanel Orientation="Horizontal" Margin="0,14,0,0">
+                        <local:MyButton x:Name="BtnOpenPluginFolder" Text="打开插件文件夹" MinWidth="150" Height="32" Padding="13,0" ColorType="Highlight" />
+                        <local:MyButton x:Name="BtnRescanPlugins" Text="重新扫描" MinWidth="120" Height="32" Margin="12,0,0,0" Padding="13,0" />
+                        <local:MyButton x:Name="BtnCreateSamplePlugin" Text="创建示例插件" MinWidth="140" Height="32" Margin="12,0,0,0" Padding="13,0" />
+                    </StackPanel>
+                    <TextBlock x:Name="LabPluginStatus" Margin="0,12,0,0" TextWrapping="Wrap" Foreground="{DynamicResource ColorBrushGray2}" />
                 </StackPanel>
             </local:MyCard>
+            <StackPanel x:Name="PanPlugins" />
         </StackPanel>
     </local:MyScrollViewer>
 </local:MyPageRight>

@@ -1,0 +1,37 @@
+// PermissionDemo：权限声明示例
+// 位置：PCL\Plugin\PermissionDemo\plugin.plugscript
+
+function on_first_launch() {
+   UI.type = "new_window"
+   UI.title = "权限申请示例"
+   UI.width = 720
+   UI.height = 460
+   UI.FileSize = 10
+
+   Plugin.AccessRequest = island {
+   -permission: camera
+      reason: "拍照用于生成玩家头像"
+      whenToAsk: called
+
+   -permission: storage
+      range:
+         "&PCL/Plugin/PermissionDemo"
+         "&PCL/versions"
+      reason: "读取游戏版本目录，以便定位游戏文件"
+      whenToAsk: firstLaunch, called
+
+   -permission: executeSystemShell
+      reason: "预留启动游戏进程的能力"
+      whenToAsk: firstLaunch, called
+   }
+}
+
+function main() {
+   print("插件名称：" + Plugin.Name)
+
+   if Permission.has("camera") {
+      print("camera 权限已授予")
+   } else {
+      print("camera 权限未授予（v0.1 中该权限仅声明，不会实际授予）")
+   }
+}

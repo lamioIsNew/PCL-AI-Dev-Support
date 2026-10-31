@@ -258,6 +258,16 @@
     <Compile Include="Modules\Minecraft\ModWatcher.vb" />
     <Compile Include="Modules\ModSecret.vb" />
     <Compile Include="Modules\ModPlugin.vb" />
+    <Compile Include="Modules\PlugScriptHost.vb" />
+    <Compile Include="Modules\PlugScript\PlugScriptValues.vb" />
+    <Compile Include="Modules\PlugScript\PlugScriptLexer.vb" />
+    <Compile Include="Modules\PlugScript\PlugScriptAst.vb" />
+    <Compile Include="Modules\PlugScript\PlugScriptExpressionParser.vb" />
+    <Compile Include="Modules\PlugScript\PlugScriptParser.vb" />
+    <Compile Include="Modules\PlugScript\PlugScriptInterpreter.vb" />
+    <Compile Include="Modules\PlugScript\PlugScriptContext.vb" />
+    <Compile Include="Modules\PlugScript\PlugScriptSelfTest.vb" />
+    <Compile Include="Modules\PlugScript\PlugScriptEngine.vb" />
     <Compile Include="Pages\PageDownload\Resource\PageResource.xaml.vb">
       <DependentUpon>PageResource.xaml</DependentUpon>
     </Compile>

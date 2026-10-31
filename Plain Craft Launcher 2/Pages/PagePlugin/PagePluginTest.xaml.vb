@@ -43,4 +43,26 @@ Public Class PagePluginTest
         End Try
     End Sub
 
+    Private Sub BtnPlugScriptSelfTest_Click(sender As Object, e As MouseButtonEventArgs) Handles BtnPlugScriptSelfTest.Click
+        BtnPlugScriptSelfTest.IsEnabled = False
+        TxtPlugScriptSelfTestResult.Text = "正在运行 PlugScript 自检..."
+
+        RunInThread(
+        Sub()
+            Dim Report As String
+            Try
+                Report = PlugScriptEngine.SelfTest()
+            Catch ex As Exception
+                Logger.Error(ex, "PlugScript 自检失败")
+                Report = "PlugScript 自检失败：" & ex.Message
+            End Try
+
+            RunInUi(
+            Sub()
+                TxtPlugScriptSelfTestResult.Text = Report
+                BtnPlugScriptSelfTest.IsEnabled = True
+            End Sub)
+        End Sub)
+    End Sub
+
 End Class
