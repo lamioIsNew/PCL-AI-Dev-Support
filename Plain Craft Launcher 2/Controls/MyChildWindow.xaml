@@ -8,7 +8,7 @@
         Width="640" Height="420" MinWidth="360" MinHeight="220"
         ResizeMode="NoResize" Title="窗口">
     <Grid Margin="12">
-        <Border CornerRadius="9" Background="{DynamicResource ColorBrush8}" ClipToBounds="True">
+        <Border CornerRadius="0" Background="{DynamicResource ColorBrush8}" ClipToBounds="True">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="14" ShadowDepth="0" Opacity="0.22" Color="#000000" />
             </Border.Effect>

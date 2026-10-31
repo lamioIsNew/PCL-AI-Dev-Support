@@ -725,7 +725,7 @@ Public Module PlugScriptHost
         ButtonPanel.Children.Add(BtnFolder)
         Root.Children.Add(ButtonPanel)
 
-        Return New ScrollViewer With {
+        Return New MyScrollViewer With {
             .VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
             .HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
             .Content = Root

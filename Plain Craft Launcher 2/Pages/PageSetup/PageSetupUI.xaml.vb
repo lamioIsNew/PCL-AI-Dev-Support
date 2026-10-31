@@ -4,6 +4,7 @@ Public Class PageSetupUI
         '重复加载部分
         PanBack.ScrollToHome()
         ThemeCheckAll(True)
+        EnableAllThemes()
         If ThemeDontClick <> 0 Then
             Dim NewText As String = Nothing
             Select Case ThemeDontClick
@@ -400,6 +401,32 @@ Refresh:
     Private Sub HSL_Change() Handles SliderLauncherHue.Change, SliderLauncherLight.Change, SliderLauncherSat.Change, SliderLauncherDelta.Change
         If AniControlEnabled <> 0 OrElse SliderLauncherSat Is Nothing OrElse Not SliderLauncherSat.IsLoaded Then Return
         ThemeRefresh()
+    End Sub
+
+    ''' <summary>
+    ''' PCL - DTA 不再对主题做赞助解锁，所有主题与自定义主题直接开放。
+    ''' </summary>
+    Private Sub EnableAllThemes()
+        Try
+            RadioLauncherTheme5.IsEnabled = True
+            RadioLauncherTheme5.Opacity = 1
+            RadioLauncherTheme5Gray.IsEnabled = False
+            RadioLauncherTheme5Gray.Opacity = 0
+            LabLauncherTheme5Unlock.Visibility = Visibility.Collapsed
+
+            For Each Radio In {RadioLauncherTheme6, RadioLauncherTheme7, RadioLauncherTheme8, RadioLauncherTheme9,
+                               RadioLauncherTheme10, RadioLauncherTheme11, RadioLauncherTheme12, RadioLauncherTheme13,
+                               RadioLauncherTheme14}
+                Radio.IsEnabled = True
+            Next
+
+            LabLauncherTheme8Copy.Visibility = Visibility.Collapsed
+            LabLauncherTheme9Copy.Visibility = Visibility.Collapsed
+            LabLauncherTheme11Click.Visibility = Visibility.Collapsed
+            Logger.Info("已启用全部主题与自定义主题")
+        Catch ex As Exception
+            Logger.Warn(ex, "启用全部主题失败")
+        End Try
     End Sub
 
 #Region "功能隐藏"
