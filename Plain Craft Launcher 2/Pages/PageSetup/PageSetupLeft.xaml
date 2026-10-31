@@ -36,5 +36,13 @@
                 </x:Array>
             </local:MyListItem.Buttons>
         </local:MyListItem>
+        <local:MyListItem x:Name="ItemAI" IsScaleAnimationEnabled="False" Tag="4" MinPaddingRight="35" Height="36" VerticalAlignment="Top" Title="AI 开发" Type="RadioBox"
+            LogoScale="0.9" Logo="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zM7.5 11.5C7.5 10.67 8.17 10 9 10s1.5.67 1.5 1.5S9.83 13 9 13s-1.5-.67-1.5-1.5zM16 17H8v-2h8v2zm-1-4c-.83 0-1.5-.67-1.5-1.5S14.17 10 15 10s1.5.67 1.5 1.5S15.83 13 15 13z">
+            <local:MyListItem.Buttons>
+                <x:Array Type="{x:Type local:MyIconButton}">
+                    <local:MyIconButton Tag="4" ToolTip="初始化本页设置" ToolTipService.InitialShowDelay="200" Click="Reset" Logo="M530 0c287 0 521 229 521 511s-233 511-521 511c-233 0-436-151-500-368a63 63 0 0 1 44-79 65 65 0 0 1 80 43c48 162 200 276 375 276 215 0 390-171 390-383s-174-383-390-383c-103 0-199 39-270 106l21-5a63 63 0 0 1 33 123l-157 42a65 65 0 0 1-90-42l-49-183a65 65 0 1 1 126-33l6 26A524 524 0 0 1 530 0z" LogoScale="0.9" />
+                </x:Array>
+            </local:MyListItem.Buttons>
+        </local:MyListItem>
     </StackPanel>
 </local:MyPageLeft>
