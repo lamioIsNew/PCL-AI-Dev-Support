@@ -1,17 +1,31 @@
-# Plain Craft Launcher
+# PCL - DTA
 
-[![Stars](https://img.shields.io/github/stars/Meloong-Git/PCL?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZD0iTTggLjI1YS43NS43NSAwIDAgMSAuNjczLjQxOGwxLjg4MiAzLjgxNSA0LjIxLjYxMmEuNzUuNzUgMCAwIDEgLjQxNiAxLjI3OWwtMy4wNDYgMi45Ny43MTkgNC4xOTJhLjc1MS43NTEgMCAwIDEtMS4wODguNzkxTDggMTIuMzQ3bC0zLjc2NiAxLjk4YS43NS43NSAwIDAgMS0xLjA4OC0uNzlsLjcyLTQuMTk0TC44MTggNi4zNzRhLjc1Ljc1IDAgMCAxIC40MTYtMS4yOGw0LjIxLS42MTFMNy4zMjcuNjY4QS43NS43NSAwIDAgMSA4IC4yNVoiIGZpbGw9IiNlYWM1NGYiLz48L3N2Zz4=&logoSize=auto&label=Stars&labelColor=444444&color=eac54f)](https://github.com/Meloong-Git/PCL/)
-[![Issues](https://img.shields.io/github/issues/Meloong-Git/PCL?style=flat&label=Issues&labelColor=444444&color=1F883D)](https://github.com/Meloong-Git/PCL/issues)
-[![哔哩哔哩](https://img.shields.io/badge/动态-BiliBili-00A4DB?style=flat&labelColor=444444&logoSize=auto)](https://space.bilibili.com/11343203/dynamic)
-[![爱发电](https://img.shields.io/badge/赞助-爱发电-946ce6?style=flat&labelColor=444444&logoSize=auto)](https://meloong.com/afd/a/LTCat)
+**全称：PCL-Developer Tools Addons**
 
-包含 PCL 的大部分源代码，包括 UI 库、动画模块、下载模块、Minecraft 启动模块等！<br/>
-代码并不是实时更新的，它会在每次 PCL 发布更新时同步一次。<br/>
-非常感谢社区的大力支持！
+> 本项目是第三方基于 [Plain Craft Launcher (PCL)](https://github.com/Meloong-Git/PCL) 独立进行的二次创作，**并非 PCL 官方版本**，与原作者龙腾猫跃及成都瓜皮龙科技有限公司无隶属关系或官方授权关系。
+>
+> 本仓库不是 PCL 的官方代码仓库，也不是官方发行渠道。请勿将本项目与 PCL 混淆，或将本项目的问题反馈到 PCL 官方渠道。
+
+PCL - DTA 在上游 PCL 源码的基础上，面向开发者工具与 AI 辅助能力进行扩展。当前 `main` 分支与上游保持同步，AI 相关功能仍在开发中。
 
 <br/>
 
-### 相关资源
+### 致谢与许可
+
+- **PCL 原作者：龙腾猫跃**（[赞助作者](https://meloong.com/afd/a/LTCat)、[GitHub](https://github.com/Meloong-Git/PCL)）。关于页面首位保留了原作者署名与赞助链接。
+- 本项目继续以 [LICENCE](LICENCE)（《PCL 分发有限许可》）作为使用与分发规则，未做任何删改。
+- 本项目公开源代码，并按《PCL 分发有限许可》的要求明确标注为第三方修改版本。
+- 本项目保留上游的 Minecraft 正版购买劝导与赞助劝导逻辑，不提供任何与 PCL 赞助解锁类似的功能。
+
+<br/>
+
+### 相关资源（上游）
+
 - [PCL 下载](https://meloong.com/pcl)：下载可免费使用的正式版 PCL！
-- [PCL 功能投票](https://github.com/Meloong-Git/PCL/discussions/2)：来参加投票吧，开发者会优先处理票数较高的项目！
+- [PCL 功能投票](https://github.com/Meloong-Git/PCL/discussions/2)
 - [帮助文档库](https://github.com/LTCatt/PCL2Help)：PCL 内置帮助文档的存储库
+
+### 本仓库
+
+- [源代码](https://github.com/lamioIsNew/PCL-AI-Dev-Support)
+- [问题反馈](https://github.com/lamioIsNew/PCL-AI-Dev-Support/issues)
