@@ -376,6 +376,9 @@ EndHint:
     '联机页面声明
     Public FrmLinkMain As PageLinkMain
 
+    '插件页面声明
+    Public FrmPlugin As PagePlugin
+
     '下载页面声明
     Public FrmDownloadLeft As PageDownloadLeft
     Public FrmDownloadInstall As PageDownloadInstall

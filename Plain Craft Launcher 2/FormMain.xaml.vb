@@ -1206,9 +1206,13 @@ Public Class FormMain
         ''' </summary>
         Setup = 3
         ''' <summary>
+        ''' 插件。
+        ''' </summary>
+        Plugin = 4
+        ''' <summary>
         ''' 更多。
         ''' </summary>
-        Other = 4
+        Other = 5
         ''' <summary>
         ''' 版本选择。这是一个副页面。
         ''' </summary>
@@ -1399,7 +1403,7 @@ Public Class FormMain
     ''' <summary>
     ''' 通过点击导航栏改变页面。
     ''' </summary>
-    Private Sub BtnTitleSelect_Click(sender As MyRadioButton, raiseByMouse As Boolean) Handles BtnTitleSelect0.Check, BtnTitleSelect1.Check, BtnTitleSelect2.Check, BtnTitleSelect3.Check, BtnTitleSelect4.Check
+    Private Sub BtnTitleSelect_Click(sender As MyRadioButton, raiseByMouse As Boolean) Handles BtnTitleSelect0.Check, BtnTitleSelect1.Check, BtnTitleSelect2.Check, BtnTitleSelect3.Check, BtnTitleSelectPlugin.Check, BtnTitleSelect4.Check
         If IsChangingPage Then Return
         PageChangeActual(Val(sender.Tag))
     End Sub
@@ -1484,6 +1488,9 @@ Public Class FormMain
                 Case PageType.Setup '设置
                     If FrmSetupLeft Is Nothing Then FrmSetupLeft = New PageSetupLeft
                     PageChangeAnim(FrmSetupLeft, FrmSetupLeft.PageGet(SubType))
+                Case PageType.Plugin '插件
+                    If FrmPlugin Is Nothing Then FrmPlugin = New PagePlugin
+                    PageChangeAnim(New MyPageLeft, FrmPlugin)
                 Case PageType.Other '更多
                     If FrmOtherLeft Is Nothing Then FrmOtherLeft = New PageOtherLeft
                     PageChangeAnim(FrmOtherLeft, FrmOtherLeft.PageGet(SubType))

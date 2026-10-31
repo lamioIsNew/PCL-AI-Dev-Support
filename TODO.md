@@ -12,8 +12,10 @@ __TODO__
    - 窗口标题、程序集 Title/Product/Description、关于页版本条目均改为 `PCL - DTA`。
    - “许可与版权声明”卡片下方新增 `PCL - DTA` 卡片，写明全称 `PCL-Developer Tools Addons`。
 
-3. 新增插件功能
+3. 新增插件功能 🚧（顶栏入口已完成）
 这个模块很复杂，在上栏UI中新增“插件”选项，后期会更新本TODO.md。
+   - 已在顶栏“设置”和“更多”之间新增“插件”入口，并提供占位页面 `Pages\PagePlugin\PagePlugin.xaml`。
+   - 插件浏览、安装、启用和配置等具体功能等待后续 TODO 细化。
 
 4. 新增关于Java的AI开发MCP功能
 这个模块也很复杂，将这个UI先添加到“设置”里。后续会更新TODO.md，以便让你知晓更多关于本模块的细节。 

@@ -1,0 +1,18 @@
+<local:MyPageRight
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:PCL" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" x:Class="PagePlugin"
+    PanScroll="PanBack">
+    <local:MyScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" x:Name="PanBack">
+        <StackPanel Margin="25,10">
+            <local:MyCard Margin="0,15" Title="插件">
+                <StackPanel Margin="25,42,25,22">
+                    <TextBlock Text="插件功能正在开发中" FontSize="17" FontWeight="Bold" />
+                    <TextBlock Margin="0,8,0,0" LineHeight="19" TextWrapping="Wrap" Foreground="{DynamicResource ColorBrushGray2}"
+                               Text="这里是 PCL - DTA 的插件入口。后续将支持浏览、安装、启用和配置插件，具体功能会在 TODO 更新后逐步实现。" />
+                </StackPanel>
+            </local:MyCard>
+        </StackPanel>
+    </local:MyScrollViewer>
+</local:MyPageRight>

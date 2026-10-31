@@ -371,6 +371,9 @@
     <Compile Include="Pages\PageOther\PageOtherLeft.xaml.vb">
       <DependentUpon>PageOtherLeft.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PagePlugin\PagePlugin.xaml.vb">
+      <DependentUpon>PagePlugin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageSetup\PageSetupLeft.xaml.vb">
       <DependentUpon>PageSetupLeft.xaml</DependentUpon>
     </Compile>
@@ -621,6 +624,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageOther\PageOtherLeft.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PagePlugin\PagePlugin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
