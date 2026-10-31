@@ -377,7 +377,9 @@ EndHint:
     Public FrmLinkMain As PageLinkMain
 
     '插件页面声明
+    Public FrmPluginLeft As PagePluginLeft
     Public FrmPlugin As PagePlugin
+    Public FrmPluginTest As PagePluginTest
 
     '下载页面声明
     Public FrmDownloadLeft As PageDownloadLeft

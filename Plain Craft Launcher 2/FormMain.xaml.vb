@@ -1261,6 +1261,8 @@ Public Class FormMain
         InstanceMod = 3
         InstanceModDisabled = 4
         InstanceExport = 5
+        PluginMain = 0
+        PluginTest = 1
     End Enum
     ''' <summary>
     ''' 获取次级页面的名称。若并非次级页面则返回空字符串，故可以以此判断是否为次级页面。
@@ -1318,6 +1320,9 @@ Public Class FormMain
                 Case PageType.Other
                     If FrmOtherLeft Is Nothing Then FrmOtherLeft = New PageOtherLeft
                     Return FrmOtherLeft.PageID
+                Case PageType.Plugin
+                    If FrmPluginLeft Is Nothing Then FrmPluginLeft = New PagePluginLeft
+                    Return FrmPluginLeft.PageID
                 Case PageType.InstanceSetup
                     If FrmInstanceLeft Is Nothing Then FrmInstanceLeft = New PageInstanceLeft
                     Return FrmInstanceLeft.PageID
@@ -1389,6 +1394,9 @@ Public Class FormMain
                 Case PageType.Other
                     If FrmOtherLeft Is Nothing Then FrmOtherLeft = New PageOtherLeft
                     CType(FrmOtherLeft.PanItem.Children(SubType), MyListItem).SetChecked(True, True, Stack = PageCurrent)
+                Case PageType.Plugin
+                    If FrmPluginLeft Is Nothing Then FrmPluginLeft = New PagePluginLeft
+                    CType(FrmPluginLeft.PanItem.Children(SubType), MyListItem).SetChecked(True, True, Stack = PageCurrent)
             End Select
             PageChangeActual(Stack, SubType)
         Else
@@ -1490,8 +1498,8 @@ Public Class FormMain
                     If FrmSetupLeft Is Nothing Then FrmSetupLeft = New PageSetupLeft
                     PageChangeAnim(FrmSetupLeft, FrmSetupLeft.PageGet(SubType))
                 Case PageType.Plugin '插件
-                    If FrmPlugin Is Nothing Then FrmPlugin = New PagePlugin
-                    PageChangeAnim(New MyPageLeft, FrmPlugin)
+                    If FrmPluginLeft Is Nothing Then FrmPluginLeft = New PagePluginLeft
+                    PageChangeAnim(FrmPluginLeft, FrmPluginLeft.PageGet(SubType))
                 Case PageType.Other '更多
                     If FrmOtherLeft Is Nothing Then FrmOtherLeft = New PageOtherLeft
                     PageChangeAnim(FrmOtherLeft, FrmOtherLeft.PageGet(SubType))

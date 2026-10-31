@@ -1,0 +1,22 @@
+<local:MyPageRight
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:PCL" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" x:Class="PagePluginTest"
+    PanScroll="PanBack">
+    <local:MyScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" x:Name="PanBack">
+        <StackPanel Margin="25,10">
+            <local:MyCard Margin="0,15" Title="动态 UI 加载测试">
+                <StackPanel Margin="25,42,25,22">
+                    <TextBlock Text="验证插件 UI 能力" FontSize="15" FontWeight="Bold" />
+                    <TextBlock Margin="0,8,0,0" LineHeight="19" TextWrapping="Wrap" Foreground="{DynamicResource ColorBrushGray2}"
+                               Text="下方内容由 XAML 字符串在运行时解析并挂载到当前页面。点击按钮可以弹出一个带自定义标题的 PCL 风格子窗口，窗口内容同样由 XAML 动态创建。" />
+                    <StackPanel x:Name="PanDynamic" Margin="0,16,0,0" />
+                    <StackPanel Orientation="Horizontal" Height="35" Margin="0,16,0,0">
+                        <local:MyButton x:Name="BtnOpenWindow" MinWidth="170" Text="弹出自定义标题窗口" Padding="13,0" ColorType="Highlight" />
+                    </StackPanel>
+                </StackPanel>
+            </local:MyCard>
+        </StackPanel>
+    </local:MyScrollViewer>
+</local:MyPageRight>

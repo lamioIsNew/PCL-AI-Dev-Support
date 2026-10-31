@@ -10,7 +10,7 @@
                 <StackPanel Margin="25,42,25,22">
                     <TextBlock Text="插件功能正在开发中" FontSize="17" FontWeight="Bold" />
                     <TextBlock Margin="0,8,0,0" LineHeight="19" TextWrapping="Wrap" Foreground="{DynamicResource ColorBrushGray2}"
-                               Text="这里是 PCL - DTA 的插件入口。后续将支持浏览、安装、启用和配置插件，具体功能会在 TODO 更新后逐步实现。" />
+                               Text="这里是 PCL - DTA 的插件列表。当前版本已支持动态加载并挂载插件 UI、弹出 PCL 风格子窗口；插件浏览、安装、启用和配置等能力会在后续 TODO 更新后逐步实现。" />
                 </StackPanel>
             </local:MyCard>
         </StackPanel>

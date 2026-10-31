@@ -257,6 +257,7 @@
     <Compile Include="Modules\ModDevelop.vb" />
     <Compile Include="Modules\Minecraft\ModWatcher.vb" />
     <Compile Include="Modules\ModSecret.vb" />
+    <Compile Include="Modules\ModPlugin.vb" />
     <Compile Include="Pages\PageDownload\Resource\PageResource.xaml.vb">
       <DependentUpon>PageResource.xaml</DependentUpon>
     </Compile>
@@ -374,6 +375,12 @@
     <Compile Include="Pages\PagePlugin\PagePlugin.xaml.vb">
       <DependentUpon>PagePlugin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PagePlugin\PagePluginLeft.xaml.vb">
+      <DependentUpon>PagePluginLeft.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PagePlugin\PagePluginTest.xaml.vb">
+      <DependentUpon>PagePluginTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageSetup\PageSetupLeft.xaml.vb">
       <DependentUpon>PageSetupLeft.xaml</DependentUpon>
     </Compile>
@@ -425,6 +432,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MyIconButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MyChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -483,6 +494,9 @@
     </Compile>
     <Compile Include="Controls\MyIconButton.xaml.vb">
       <DependentUpon>MyIconButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MyChildWindow.xaml.vb">
+      <DependentUpon>MyChildWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MyMsg\MyMsgText.xaml.vb">
       <DependentUpon>MyMsgText.xaml</DependentUpon>
@@ -631,6 +645,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\PagePlugin\PagePlugin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PagePlugin\PagePluginLeft.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PagePlugin\PagePluginTest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -1,0 +1,31 @@
+<Window x:Class="MyChildWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:PCL"
+        Style="{StaticResource MyWindow}"
+        WindowStyle="None" AllowsTransparency="True" Background="{x:Null}"
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        Width="640" Height="420" MinWidth="360" MinHeight="220"
+        ResizeMode="NoResize" Title="窗口">
+    <Grid Margin="12">
+        <Border CornerRadius="9" Background="{DynamicResource ColorBrush8}" ClipToBounds="True">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="14" ShadowDepth="0" Opacity="0.22" Color="#000000" />
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="42" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid x:Name="PanTitle" Background="{DynamicResource ColorBrush4}" MouseLeftButtonDown="PanTitle_MouseLeftButtonDown">
+                    <TextBlock x:Name="LabTitle" Margin="18,0,52,0" VerticalAlignment="Center" Foreground="White" FontSize="15"
+                               TextTrimming="CharacterEllipsis" />
+                    <local:MyIconButton x:Name="BtnClose" HorizontalAlignment="Right" Height="28" Width="28" Margin="0,0,10,0"
+                                        VerticalAlignment="Center" Theme="White" LogoScale="0.62" Click="BtnClose_Click"
+                                        Logo="F1 M2,0 L0,2 8,10 0,18 2,20 10,12 18,20 20,18 12,10 20,2 18,0 10,8 2,0Z" />
+                </Grid>
+                <ContentPresenter x:Name="PanContent" Grid.Row="1" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
