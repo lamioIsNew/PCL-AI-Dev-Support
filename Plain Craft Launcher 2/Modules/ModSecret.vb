@@ -61,39 +61,104 @@ Friend Module ModSecret
     Public ColorGray7 As New MyColor(240, 240, 240)
     Public ColorGray8 As New MyColor(245, 245, 245)
     Public ColorSemiTransparent As New MyColor(1, Color8)
+    '深色模式下的各表面颜色
+    Public ColorCard As New MyColor(245, 255, 255, 255)
+    Public ColorInput As New MyColor(85, 255, 255, 255)
+    Public ColorSidebar As New MyColor(241, 255, 255, 255)
+    Public ColorOverlay As New MyColor(251, 251, 251)
+    Public ColorDivider As New MyColor(34, 64, 64, 64)
 
     Public ThemeNow As Integer = -1
+    Public ThemeIsDark As Boolean = False
     Public ColorHue As Integer = 210, ColorSat As Integer = 85, ColorLightAdjust As Integer = 0, ColorHueTopbarDelta As OneOf(Of Integer, Integer()) = 0
     Public ThemeDontClick As Integer = 0
 
     Public Sub ThemeRefresh(Optional NewTheme As Integer = -1)
         Try
-            If ThemeNow = NewTheme AndAlso NewTheme >= 0 Then Return
+            '即使主题编号没有改变，也需要刷新，否则切换深色模式时不会生效
             If NewTheme >= 0 Then ThemeNow = NewTheme
+            ThemeIsDark = Settings.Get(Of Boolean)("UiDarkMode")
 
-            Color1 = New MyColor().FromHSL2(ColorHue, ColorSat * 0.2, 25 + ColorLightAdjust * 0.3)
-            Color2 = New MyColor().FromHSL2(ColorHue, ColorSat, 45 + ColorLightAdjust)
-            Color3 = New MyColor().FromHSL2(ColorHue, ColorSat, 55 + ColorLightAdjust)
-            Color4 = New MyColor().FromHSL2(ColorHue, ColorSat, 65 + ColorLightAdjust)
-            Color5 = New MyColor().FromHSL2(ColorHue, ColorSat, 80 + ColorLightAdjust * 0.4)
-            Color6 = New MyColor().FromHSL2(ColorHue, ColorSat, 91 + ColorLightAdjust * 0.1)
-            Color7 = New MyColor().FromHSL2(ColorHue, ColorSat, 95)
-            Color8 = New MyColor().FromHSL2(ColorHue, ColorSat, 97)
-            ColorBg0 = Color4 * 0.4 + Color5 * 0.4 + ColorGray4 * 0.2
-            ColorBg1 = New MyColor(190, Color7)
+            If ThemeIsDark Then
+                '深色模式：主文字接近白色，强调色保持当前色调，背景为带色调的深灰
+                Color1 = New MyColor(230, 232, 235)
+                Color2 = New MyColor().FromHSL2(ColorHue, ColorSat, 45 + ColorLightAdjust)
+                Color3 = New MyColor().FromHSL2(ColorHue, ColorSat, 52 + ColorLightAdjust)
+                Color4 = New MyColor().FromHSL2(ColorHue, ColorSat, 60 + ColorLightAdjust)
+                Color5 = New MyColor().FromHSL2(ColorHue, ColorSat * 0.8, 70 + ColorLightAdjust * 0.4)
+                Color6 = New MyColor().FromHSL(ColorHue, 12, 26)
+                Color7 = New MyColor().FromHSL(ColorHue, 11, 28)
+                Color8 = New MyColor().FromHSL(ColorHue, 10, 18)
+                ColorBg0 = New MyColor().FromHSL2(ColorHue, ColorSat * 0.55, 52 + ColorLightAdjust)
+                ColorBg1 = New MyColor(190, New MyColor().FromHSL(ColorHue, 12, 30))
+                '灰色系反转：Gray1 为浅色文字，Gray8 为深色表面
+                ColorGray1 = New MyColor().FromHSL(ColorHue, 6, 88)
+                ColorGray2 = New MyColor().FromHSL(ColorHue, 6, 72)
+                ColorGray3 = New MyColor().FromHSL(ColorHue, 6, 60)
+                ColorGray4 = New MyColor().FromHSL(ColorHue, 6, 50)
+                ColorGray5 = New MyColor().FromHSL(ColorHue, 7, 40)
+                ColorGray6 = New MyColor().FromHSL(ColorHue, 8, 30)
+                ColorGray7 = New MyColor().FromHSL(ColorHue, 9, 24)
+                ColorGray8 = New MyColor().FromHSL(ColorHue, 10, 18)
+                ColorCard = New MyColor(245, New MyColor().FromHSL(ColorHue, 11, 21))
+                ColorInput = New MyColor().FromHSL(ColorHue, 10, 24)
+                ColorSidebar = New MyColor(241, New MyColor().FromHSL(ColorHue, 10, 15))
+                ColorOverlay = New MyColor().FromHSL(ColorHue, 10, 19)
+                ColorDivider = New MyColor(34, Color1)
+            Else
+                '浅色模式：保持原有配色
+                Color1 = New MyColor().FromHSL2(ColorHue, ColorSat * 0.2, 25 + ColorLightAdjust * 0.3)
+                Color2 = New MyColor().FromHSL2(ColorHue, ColorSat, 45 + ColorLightAdjust)
+                Color3 = New MyColor().FromHSL2(ColorHue, ColorSat, 55 + ColorLightAdjust)
+                Color4 = New MyColor().FromHSL2(ColorHue, ColorSat, 65 + ColorLightAdjust)
+                Color5 = New MyColor().FromHSL2(ColorHue, ColorSat, 80 + ColorLightAdjust * 0.4)
+                Color6 = New MyColor().FromHSL2(ColorHue, ColorSat, 91 + ColorLightAdjust * 0.1)
+                Color7 = New MyColor().FromHSL2(ColorHue, ColorSat, 95)
+                Color8 = New MyColor().FromHSL2(ColorHue, ColorSat, 97)
+                ColorGray1 = New MyColor(64, 64, 64)
+                ColorGray2 = New MyColor(115, 115, 115)
+                ColorGray3 = New MyColor(140, 140, 140)
+                ColorGray4 = New MyColor(166, 166, 166)
+                ColorGray5 = New MyColor(204, 204, 204)
+                ColorGray6 = New MyColor(235, 235, 235)
+                ColorGray7 = New MyColor(240, 240, 240)
+                ColorGray8 = New MyColor(245, 245, 245)
+                ColorBg0 = Color4 * 0.4 + Color5 * 0.4 + ColorGray4 * 0.2
+                ColorBg1 = New MyColor(190, Color7)
+                ColorCard = New MyColor(245, 255, 255, 255)
+                ColorInput = New MyColor(85, 255, 255, 255)
+                ColorSidebar = New MyColor(241, 255, 255, 255)
+                ColorOverlay = New MyColor(251, 251, 251)
+                ColorDivider = New MyColor(34, Color1)
+            End If
 
             ColorSemiTransparent = New MyColor(1, Color8)
-            Application.Current.Resources("ColorBrush1") = New SolidColorBrush(Color1)
-            Application.Current.Resources("ColorBrush2") = New SolidColorBrush(Color2)
-            Application.Current.Resources("ColorBrush3") = New SolidColorBrush(Color3)
-            Application.Current.Resources("ColorBrush4") = New SolidColorBrush(Color4)
-            Application.Current.Resources("ColorBrush5") = New SolidColorBrush(Color5)
-            Application.Current.Resources("ColorBrush6") = New SolidColorBrush(Color6)
-            Application.Current.Resources("ColorBrush7") = New SolidColorBrush(Color7)
-            Application.Current.Resources("ColorBrush8") = New SolidColorBrush(Color8)
-            Application.Current.Resources("ColorBrushBg0") = New SolidColorBrush(ColorBg0)
-            Application.Current.Resources("ColorBrushBg1") = New SolidColorBrush(ColorBg1)
-            Application.Current.Resources("ColorObject1") = CType(Color1, Color)
+            WriteThemeColor("ColorBrush1", Color1)
+            WriteThemeColor("ColorBrush2", Color2)
+            WriteThemeColor("ColorBrush3", Color3)
+            WriteThemeColor("ColorBrush4", Color4)
+            WriteThemeColor("ColorBrush5", Color5)
+            WriteThemeColor("ColorBrush6", Color6)
+            WriteThemeColor("ColorBrush7", Color7)
+            WriteThemeColor("ColorBrush8", Color8)
+            WriteThemeColor("ColorBrushBg0", ColorBg0)
+            WriteThemeColor("ColorBrushBg1", ColorBg1)
+            For i = 1 To 8
+                WriteThemeColor("ColorBrushGray" & i, GetThemeGray(i))
+            Next
+            WriteThemeColor("ColorBrushSemiTransparent", ColorSemiTransparent)
+            WriteThemeColor("ColorBrushCard", ColorCard)
+            WriteThemeColor("ColorBrushInput", ColorInput)
+            WriteThemeColor("ColorBrushSidebar", ColorSidebar)
+            WriteThemeColor("ColorBrushBackgroundTransparentSidebar", ColorSidebar)
+            WriteThemeColor("ColorBrushOverlay", ColorOverlay)
+            WriteThemeColor("ColorBrushDivider", ColorDivider)
+            Application.Current.Resources("ColorBrushHalfWhite") = New SolidColorBrush(If(ThemeIsDark, New MyColor(38, 255, 255, 255), New MyColor(85, 255, 255, 255)))
+            Application.Current.Resources("ColorBrushSemiWhite") = New SolidColorBrush(If(ThemeIsDark, New MyColor(51, 255, 255, 255), New MyColor(187, 255, 255, 255)))
+            '校验失败等红色背景在深色模式下需要压暗，避免刺眼
+            Application.Current.Resources("ColorBrushRedBack") = New SolidColorBrush(If(ThemeIsDark, New MyColor(128, 96, 32, 32), New MyColor(128, 251, 221, 221)))
+            'ColorObject1 主要用作阴影颜色，深色模式下应保持深色，避免出现白色光晕
+            Application.Current.Resources("ColorObject1") = If(ThemeIsDark, Colors.Black, CType(Color1, Color))
             Application.Current.Resources("ColorObject2") = CType(Color2, Color)
             Application.Current.Resources("ColorObject3") = CType(Color3, Color)
             Application.Current.Resources("ColorObject4") = CType(Color4, Color)
@@ -103,11 +168,35 @@ Friend Module ModSecret
             Application.Current.Resources("ColorObject8") = CType(Color8, Color)
             Application.Current.Resources("ColorObjectBg0") = CType(ColorBg0, Color)
             Application.Current.Resources("ColorObjectBg1") = CType(ColorBg1, Color)
+            For i = 1 To 8
+                Application.Current.Resources("ColorObjectGray" & i) = CType(GetThemeGray(i), Color)
+            Next
             ThemeRefreshMain()
         Catch ex As Exception
             Logger.Error(ex, "刷新主题颜色失败", LogBehavior.Toast)
         End Try
     End Sub
+    ''' <summary>
+    ''' 将主题颜色写入应用程序资源，供 DynamicResource 实时更新。
+    ''' </summary>
+    Private Sub WriteThemeColor(Key As String, Color As MyColor)
+        Application.Current.Resources(Key) = New SolidColorBrush(Color)
+    End Sub
+    ''' <summary>
+    ''' 获取当前主题下指定序号的灰色。
+    ''' </summary>
+    Private Function GetThemeGray(Index As Integer) As MyColor
+        Select Case Index
+            Case 1 : Return ColorGray1
+            Case 2 : Return ColorGray2
+            Case 3 : Return ColorGray3
+            Case 4 : Return ColorGray4
+            Case 5 : Return ColorGray5
+            Case 6 : Return ColorGray6
+            Case 7 : Return ColorGray7
+            Case Else : Return ColorGray8
+        End Select
+    End Function
     Public Sub ThemeRefreshMain()
         RunInUi(
         Sub()
@@ -115,20 +204,28 @@ Friend Module ModSecret
             '顶部条背景
             Dim Brush = New LinearGradientBrush With {.EndPoint = New Point(1, 0), .StartPoint = New Point(0, 0)}
             Dim Deltas = ColorHueTopbarDelta.Switch(Function(d) New Integer() {-d, 0, d}, Function(d) d)
-            Brush.GradientStops.Add(New GradientStop With {.Offset = 0, .Color = New MyColor().FromHSL2(ColorHue + Deltas(0), ColorSat, 48 + ColorLightAdjust)})
-            Brush.GradientStops.Add(New GradientStop With {.Offset = 0.5, .Color = New MyColor().FromHSL2(ColorHue + Deltas(1), ColorSat, 54 + ColorLightAdjust)})
-            Brush.GradientStops.Add(New GradientStop With {.Offset = 1, .Color = New MyColor().FromHSL2(ColorHue + Deltas(2), ColorSat, 48 + ColorLightAdjust)})
+            Dim TitleLight = If(ThemeIsDark, 38, 48)
+            Dim TitleLightCenter = If(ThemeIsDark, 44, 54)
+            Brush.GradientStops.Add(New GradientStop With {.Offset = 0, .Color = New MyColor().FromHSL2(ColorHue + Deltas(0), ColorSat, TitleLight + ColorLightAdjust)})
+            Brush.GradientStops.Add(New GradientStop With {.Offset = 0.5, .Color = New MyColor().FromHSL2(ColorHue + Deltas(1), ColorSat, TitleLightCenter + ColorLightAdjust)})
+            Brush.GradientStops.Add(New GradientStop With {.Offset = 1, .Color = New MyColor().FromHSL2(ColorHue + Deltas(2), ColorSat, TitleLight + ColorLightAdjust)})
             FrmMain.PanTitle.Background = Brush
             FrmMain.PanTitle.Background.Freeze()
             '主页面背景
             If Settings.Get(Of Boolean)("UiBackgroundColorful") Then
                 Brush = New LinearGradientBrush With {.EndPoint = New Point(0.1, 1), .StartPoint = New Point(0.9, 0)}
-                Brush.GradientStops.Add(New GradientStop With {.Offset = -0.1, .Color = New MyColor().FromHSL2(ColorHue - 15, ColorSat * 0.8, 91)})
-                Brush.GradientStops.Add(New GradientStop With {.Offset = 0.4, .Color = New MyColor().FromHSL2(ColorHue, ColorSat * 0.8, 91)})
-                Brush.GradientStops.Add(New GradientStop With {.Offset = 1.1, .Color = New MyColor().FromHSL2(ColorHue + 15, ColorSat * 0.8, 91)})
+                If ThemeIsDark Then
+                    Brush.GradientStops.Add(New GradientStop With {.Offset = -0.1, .Color = New MyColor().FromHSL(ColorHue - 15, ColorSat * 0.5, 12)})
+                    Brush.GradientStops.Add(New GradientStop With {.Offset = 0.4, .Color = New MyColor().FromHSL(ColorHue, ColorSat * 0.5, 15)})
+                    Brush.GradientStops.Add(New GradientStop With {.Offset = 1.1, .Color = New MyColor().FromHSL(ColorHue + 15, ColorSat * 0.5, 12)})
+                Else
+                    Brush.GradientStops.Add(New GradientStop With {.Offset = -0.1, .Color = New MyColor().FromHSL2(ColorHue - 15, ColorSat * 0.8, 91)})
+                    Brush.GradientStops.Add(New GradientStop With {.Offset = 0.4, .Color = New MyColor().FromHSL2(ColorHue, ColorSat * 0.8, 91)})
+                    Brush.GradientStops.Add(New GradientStop With {.Offset = 1.1, .Color = New MyColor().FromHSL2(ColorHue + 15, ColorSat * 0.8, 91)})
+                End If
                 FrmMain.PanForm.Background = Brush
             Else
-                FrmMain.PanForm.Background = New MyColor(245, 245, 245)
+                FrmMain.PanForm.Background = If(ThemeIsDark, New MyColor().FromHSL(ColorHue, 10, 13), New MyColor(245, 245, 245))
             End If
             FrmMain.PanForm.Background.Freeze()
         End Sub)

@@ -617,7 +617,7 @@ Public Module PlugScriptHost
 
                 Dim LogText = CreateTextBlock(FormatLogs(Plugin), 13, FontWeights.Normal, True)
                 LogText.FontFamily = New FontFamily("Consolas")
-                Dim Scroll As New ScrollViewer With {
+                Dim Scroll As New MyScrollViewer With {
                     .VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
                     .HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
                     .Content = LogText
@@ -665,7 +665,7 @@ Public Module PlugScriptHost
         Dim LogPanel = GetSectionPanel(LogCard)
         Dim LogText = CreateTextBlock(FormatLogs(Plugin), 12, FontWeights.Normal, True)
         LogText.FontFamily = New FontFamily("Consolas")
-        Dim LogScroll As New ScrollViewer With {
+        Dim LogScroll As New MyScrollViewer With {
             .VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
             .HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
             .MaxHeight = 160,

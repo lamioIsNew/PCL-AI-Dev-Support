@@ -196,12 +196,12 @@ Public Class PageDownloadInstall
             BtnOptiFineClear.Visibility = Visibility.Collapsed
             ImgOptiFine.Visibility = Visibility.Collapsed
             LabOptiFine.Text = If(OptiFineError, "可以添加")
-            LabOptiFine.Foreground = ColorGray4
+            LabOptiFine.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray4")
         Else
             BtnOptiFineClear.Visibility = Visibility.Visible
             ImgOptiFine.Visibility = Visibility.Visible
             LabOptiFine.Text = SelectedOptiFine.DisplayName.Replace(VanillaName & " ", "")
-            LabOptiFine.Foreground = ColorGray1
+            LabOptiFine.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray1")
         End If
         'LiteLoader
         If VanillaDrop >= 130 Then
@@ -216,12 +216,12 @@ Public Class PageDownloadInstall
                 BtnLiteLoaderClear.Visibility = Visibility.Collapsed
                 ImgLiteLoader.Visibility = Visibility.Collapsed
                 LabLiteLoader.Text = If(LiteLoaderError, "可以添加")
-                LabLiteLoader.Foreground = ColorGray4
+                LabLiteLoader.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray4")
             Else
                 BtnLiteLoaderClear.Visibility = Visibility.Visible
                 ImgLiteLoader.Visibility = Visibility.Visible
                 LabLiteLoader.Text = SelectedLiteLoader.Inherit
-                LabLiteLoader.Foreground = ColorGray1
+                LabLiteLoader.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray1")
             End If
         End If
         'Forge
@@ -237,12 +237,12 @@ Public Class PageDownloadInstall
                 BtnForgeClear.Visibility = Visibility.Collapsed
                 ImgForge.Visibility = Visibility.Collapsed
                 LabForge.Text = If(ForgeError, "可以添加")
-                LabForge.Foreground = ColorGray4
+                LabForge.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray4")
             Else
                 BtnForgeClear.Visibility = Visibility.Visible
                 ImgForge.Visibility = Visibility.Visible
                 LabForge.Text = SelectedForge.VersionName
-                LabForge.Foreground = ColorGray1
+                LabForge.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray1")
             End If
         End If
         'NeoForge
@@ -258,12 +258,12 @@ Public Class PageDownloadInstall
                 BtnNeoForgeClear.Visibility = Visibility.Collapsed
                 ImgNeoForge.Visibility = Visibility.Collapsed
                 LabNeoForge.Text = If(NeoForgeError, "可以添加")
-                LabNeoForge.Foreground = ColorGray4
+                LabNeoForge.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray4")
             Else
                 BtnNeoForgeClear.Visibility = Visibility.Visible
                 ImgNeoForge.Visibility = Visibility.Visible
                 LabNeoForge.Text = SelectedNeoForge.VersionName
-                LabNeoForge.Foreground = ColorGray1
+                LabNeoForge.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray1")
             End If
         End If
         'Fabric
@@ -279,12 +279,12 @@ Public Class PageDownloadInstall
                 BtnFabricClear.Visibility = Visibility.Collapsed
                 ImgFabric.Visibility = Visibility.Collapsed
                 LabFabric.Text = If(FabricError, "可以添加")
-                LabFabric.Foreground = ColorGray4
+                LabFabric.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray4")
             Else
                 BtnFabricClear.Visibility = Visibility.Visible
                 ImgFabric.Visibility = Visibility.Visible
                 LabFabric.Text = SelectedFabric.Replace("+build", "")
-                LabFabric.Foreground = ColorGray1
+                LabFabric.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray1")
             End If
         End If
         'FabricApi
@@ -300,12 +300,12 @@ Public Class PageDownloadInstall
                 BtnFabricApiClear.Visibility = Visibility.Collapsed
                 ImgFabricApi.Visibility = Visibility.Collapsed
                 LabFabricApi.Text = If(FabricApiError, "可以添加")
-                LabFabricApi.Foreground = ColorGray4
+                LabFabricApi.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray4")
             Else
                 BtnFabricApiClear.Visibility = Visibility.Visible
                 ImgFabricApi.Visibility = Visibility.Visible
                 LabFabricApi.Text = SelectedFabricApi.Display.Split("]")(1).Replace("Fabric API ", "").Replace(" build ", ".").Split("+").First.Trim
-                LabFabricApi.Foreground = ColorGray1
+                LabFabricApi.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray1")
             End If
         End If
         'OptiFabric
@@ -321,12 +321,12 @@ Public Class PageDownloadInstall
                 BtnOptiFabricClear.Visibility = Visibility.Collapsed
                 ImgOptiFabric.Visibility = Visibility.Collapsed
                 LabOptiFabric.Text = If(OptiFabricError, "可以添加")
-                LabOptiFabric.Foreground = ColorGray4
+                LabOptiFabric.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray4")
             Else
                 BtnOptiFabricClear.Visibility = Visibility.Visible
                 ImgOptiFabric.Visibility = Visibility.Visible
                 LabOptiFabric.Text = SelectedOptiFabric.Display.Lower.Replace("optifabric-", "").Replace(".jar", "").Trim.TrimStart("v")
-                LabOptiFabric.Foreground = ColorGray1
+                LabOptiFabric.SetResourceReference(TextBlock.ForegroundProperty, "ColorBrushGray1")
             End If
         End If
         '主警告

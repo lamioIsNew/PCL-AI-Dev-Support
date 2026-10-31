@@ -77,7 +77,7 @@ Public Class MyComboBox
                 Time = 100
             Else
                 ForeColorName = "ColorBrushBg0"
-                BackColorName = "ColorBrushHalfWhite"
+                BackColorName = "ColorBrushInput"
                 Time = 100
             End If
         Else

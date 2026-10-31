@@ -101,7 +101,7 @@ Public Class MyIconButton
                         Case Themes.Red
                             Path.Fill = New MyColor(160, 255, 76, 76)
                         Case Themes.Black
-                            Path.Fill = New MyColor(160, 0, 0, 0)
+                            Path.SetResourceReference(Shape.FillProperty, "ColorBrush1")
                         Case Themes.Custom
                             Path.Fill = New MyColor(160, Foreground)
                     End Select
@@ -118,7 +118,7 @@ Public Class MyIconButton
                         Case Themes.Red
                             AnimList.Add(AaColor(Path, Shape.FillProperty, New MyColor(255, 76, 76) - Path.Fill, AnimationColorIn))
                         Case Themes.Black
-                            AnimList.Add(AaColor(Path, Shape.FillProperty, New MyColor(230, 0, 0, 0) - Path.Fill, AnimationColorIn))
+                            AnimList.Add(AaColor(Path, Shape.FillProperty, "ColorBrush2", AnimationColorIn))
                         Case Themes.Custom
                             AnimList.Add(AaColor(Path, Shape.FillProperty, New MyColor(255, Foreground) - Path.Fill, AnimationColorIn))
                     End Select
@@ -128,13 +128,13 @@ Public Class MyIconButton
                             AnimList.Add(AaColor(Path, Shape.FillProperty, "ColorBrush4", AnimationColorOut))
                             PanBack.Background = New MyColor(0, 255, 255, 255)
                         Case Themes.White
-                            AnimList.Add(AaColor(Path, Shape.FillProperty, "ColorBrush8", AnimationColorOut))
+                            AnimList.Add(AaColor(Path, Shape.FillProperty, "ColorBrushWhite", AnimationColorOut))
                             AnimList.Add(AaColor(PanBack, BackgroundProperty, New MyColor(0, 255, 255, 255) - PanBack.Background, AnimationColorOut))
                         Case Themes.Red
                             AnimList.Add(AaColor(Path, Shape.FillProperty, New MyColor(160, 255, 76, 76) - Path.Fill, AnimationColorOut))
                             PanBack.Background = New MyColor(0, 255, 255, 255)
                         Case Themes.Black
-                            AnimList.Add(AaColor(Path, Shape.FillProperty, New MyColor(160, 0, 0, 0) - Path.Fill, AnimationColorOut))
+                            AnimList.Add(AaColor(Path, Shape.FillProperty, "ColorBrush1", AnimationColorOut))
                             PanBack.Background = New MyColor(0, 255, 255, 255)
                         Case Themes.Custom
                             AnimList.Add(AaColor(Path, Shape.FillProperty, New MyColor(160, Foreground) - Path.Fill, AnimationColorOut))
@@ -149,11 +149,11 @@ Public Class MyIconButton
                         Case Themes.Color
                             Path.SetResourceReference(Shape.FillProperty, "ColorBrush5")
                         Case Themes.White
-                            Path.SetResourceReference(Shape.FillProperty, "ColorBrush8")
+                            Path.SetResourceReference(Shape.FillProperty, "ColorBrushWhite")
                         Case Themes.Red
                             Path.Fill = New MyColor(160, 255, 76, 76)
                         Case Themes.Black
-                            Path.Fill = New MyColor(160, 0, 0, 0)
+                            Path.SetResourceReference(Shape.FillProperty, "ColorBrush1")
                         Case Themes.Custom
                             Path.Fill = New MyColor(160, Foreground)
                     End Select

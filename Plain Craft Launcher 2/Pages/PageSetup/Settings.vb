@@ -138,6 +138,7 @@ Public Class Settings
         New Setting("UiLauncherLogo", True),
         New Setting("UiLauncherEmail", False),
         New Setting("UiBackgroundColorful", True, OnChanged:=Sub() ThemeRefresh()), '不传入参数
+        New Setting("UiDarkMode", False, OnChanged:=Sub() ThemeRefresh()), '深色模式，切换后立即刷新主题
         New Setting("UiBackgroundOpacity", 1000, OnChanged:=AddressOf FormMain.UpdateBackgroundAndTitleBar),
         New Setting("UiBackgroundBlur", 0, OnChanged:=AddressOf FormMain.UpdateBackgroundAndTitleBar),
         New Setting("UiBackgroundSuit", 0, OnChanged:=AddressOf FormMain.UpdateBackgroundAndTitleBar),

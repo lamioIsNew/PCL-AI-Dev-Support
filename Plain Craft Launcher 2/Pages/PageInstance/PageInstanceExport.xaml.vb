@@ -159,7 +159,9 @@ Public Class PageInstanceExport
             If CheckBox.Visibility <> Visibility.Visible Then Continue For
             CheckBox.Inlines.Add(New Run(TargetOption.Title))
             If Not String.IsNullOrEmpty(TargetOption.Description) Then
-                CheckBox.Inlines.Add(New Run("   " & TargetOption.Description) With {.Foreground = ColorGray5})
+                Dim DescriptionRun As New Run("   " & TargetOption.Description)
+                DescriptionRun.SetResourceReference(TextElement.ForegroundProperty, "ColorBrushGray5")
+                CheckBox.Inlines.Add(DescriptionRun)
             End If
         Next
     End Sub
@@ -743,9 +745,11 @@ Public Class PageInstanceExport
             CheckOptionsJava.Inlines.Clear()
             CheckOptionsJava.Inlines.Add(New Run(
                 GetExportOption(CheckOptionsJava).Title))
-            CheckOptionsJava.Inlines.Add(New Run("   " &
+            Dim JavaInfoRun As New Run("   " &
                 $"Java {JavaToExport.Version.Major} ({JavaToExport.Version})：{ _
-                PathUtils.AddSlashSuffix(PathUtils.RemoveLastPart(JavaToExport.Folder.Replace(PathUtils.RemoveLastPart(PathUtils.RemoveLastPart(PageInstanceLeft.Instance.PathVersion)), ""))).TrimStart("\")}") With {.Foreground = ColorGray5})
+                PathUtils.AddSlashSuffix(PathUtils.RemoveLastPart(JavaToExport.Folder.Replace(PathUtils.RemoveLastPart(PathUtils.RemoveLastPart(PageInstanceLeft.Instance.PathVersion)), ""))).TrimStart("\")}")
+            JavaInfoRun.SetResourceReference(TextElement.ForegroundProperty, "ColorBrushGray5")
+            CheckOptionsJava.Inlines.Add(JavaInfoRun)
         End If
         '警告条
         If JavaType = 3 Then

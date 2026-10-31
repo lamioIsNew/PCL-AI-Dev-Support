@@ -572,7 +572,9 @@ Public Class PageDownloadModify
         NewLabel.Margin = If(NewVersion Is Nothing, New Thickness(0), New Thickness(7, 0, 0, 0))
         NewLabel.Text = If(NewVersion Is Nothing, "移除", NewText)
         If NewVersion Is Nothing AndAlso UnavailableReason IsNot Nothing Then
-            NewLabel.Inlines.Add(New Run($"（{If(UnavailableReason = "无", "无可用版本", UnavailableReason)}）") With {.Foreground = ColorGray4})
+            Dim ReasonRun As New Run($"（{If(UnavailableReason = "无", "无可用版本", UnavailableReason)}）")
+            ReasonRun.SetResourceReference(TextElement.ForegroundProperty, "ColorBrushGray4")
+            NewLabel.Inlines.Add(ReasonRun)
         End If
     End Sub
 

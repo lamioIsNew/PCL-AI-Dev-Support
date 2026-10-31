@@ -23,7 +23,7 @@ Public Class MyComboBoxItem
             NewFontOpacity = 1
             Time = AnimationTimeIn
         ElseIf IsMouseOver Then
-            NewBackColorName = "ColorBrush8"
+            NewBackColorName = "ColorBrush7"
             NewFontOpacity = 1
             Time = AnimationTimeIn
         ElseIf IsEnabled Then
