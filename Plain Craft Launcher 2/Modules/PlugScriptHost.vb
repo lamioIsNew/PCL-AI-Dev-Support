@@ -734,12 +734,12 @@ Public Module PlugScriptHost
 
     Private Function CreateSectionCard(Title As String) As MyCard
         Dim Card As New MyCard With {.Title = Title, .Margin = New Thickness(0, 0, 0, 12)}
-        Card.BorderChild = New StackPanel With {.Margin = New Thickness(25, 42, 25, 20)}
+        Card.Children.Add(New StackPanel With {.Margin = New Thickness(25, 42, 25, 20)})
         Return Card
     End Function
 
     Private Function GetSectionPanel(Card As MyCard) As StackPanel
-        Return DirectCast(Card.BorderChild, StackPanel)
+        Return DirectCast(Card.Children(Card.Children.Count - 1), StackPanel)
     End Function
 
     Private Function CreateTextBlock(Text As String, FontSize As Double, Weight As FontWeight, Gray As Boolean, Optional Margin As Thickness = Nothing) As TextBlock

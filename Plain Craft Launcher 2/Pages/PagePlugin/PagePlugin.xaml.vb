@@ -82,14 +82,14 @@ Public Class PagePlugin
         Dim Panel As New StackPanel With {.Margin = New Thickness(25, 42, 25, 22)}
         Panel.Children.Add(CreateLabel("插件目录为空。", False, True, 14))
         Panel.Children.Add(CreateLabel("每个插件应放在独立的子文件夹中，并包含 plugin.plugscript。点击上方「创建示例插件」可以生成一个可运行的 HelloWindow 示例。", True, False, 12, New Thickness(0, 6, 0, 0)))
-        Card.BorderChild = Panel
+        Card.Children.Add(Panel)
         Return Card
     End Function
 
     Private Function BuildPluginCard(Plugin As PlugScriptPlugin) As MyCard
         Dim Card As New MyCard With {.Title = Plugin.Name, .Margin = New Thickness(0, 0, 0, 15)}
         Dim Panel As New StackPanel With {.Margin = New Thickness(25, 42, 25, 22)}
-        Card.BorderChild = Panel
+        Card.Children.Add(Panel)
 
         '状态
         Dim IsError = Plugin.Status = "加载失败"
