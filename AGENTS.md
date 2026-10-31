@@ -20,7 +20,7 @@
   - 主工程通过 `ProjectReference` 构建 `PCLCS` 和 `MeloongCore`，并把 `PCLCS\bin\*.dll` 作为嵌入资源打包；不要只单独编译 `PCLCS` 后手工复制 DLL。
   - 本地构建不需要 CI 的 `Help.zip` 更新步骤（`Plain Craft Launcher 2\Resources\Help.zip` 已入库）。CI 还会替换 `ModSecret.vb` 中的密钥和 `ModBase.CommitHash`；本地保持空值即可。
 - 主仓库没有测试工程；测试只在 `MeloongCore/Tests`（TUnit，net48/Windows）。
-- 本地编译产物和测试统一放在仓库根目录的 `dist\`；该目录已加入 `.gitignore`，不要把构建或测试运行产物提交到仓库。构建后把 `Plain Craft Launcher 2\bin\` 的内容复制到 `dist\Release\` 运行；PCL 会在 exe 旁创建 `PCL\` 数据目录。
+- 本地编译产物和测试统一放在仓库根目录的 `dist\`；该目录已加入 `.gitignore`，不要把构建或测试运行产物提交到仓库。每次编译后新建 `dist\Release<VersionBaseName>\`（例如 `dist\Release2.99.0.1\`），把 `Plain Craft Launcher 2\bin\` 的内容复制进去，并删除旧版本目录；PCL 会在 exe 旁创建 `PCL\` 数据目录。
 - `.github/workflows/build.yml` 只监听 `Plain Craft Launcher 2/**` 和 `.github/workflows/**`；只改 `PCLCS` 或 `MeloongCore` 不会触发构建检查。
 
 ## 代码结构
@@ -39,3 +39,4 @@
 - UI 线程使用 `RunInUi` / `RunInUiWait`，后台使用 `RunInThread` / `RunInNewThread`；日志统一用 `Logger`，不要用 `Debug.WriteLine` 或 `Console`。
 - 密钥只从环境变量读取：`PCL_MS_CLIENT_ID`、`PCL_CURSEFORGE_API_KEY`（见 `Modules\ModSecret.vb`）。不要提交真实密钥；文件中的空白值是有意为之。
 - `patches\` 是历史发行补丁归档，不要手改；源码改动不要混入这些文件。
+- 编译完成后将产物放在/dist中，以便用户查看软件进度。
