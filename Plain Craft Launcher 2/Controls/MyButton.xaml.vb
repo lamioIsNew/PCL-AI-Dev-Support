@@ -88,10 +88,10 @@ Public Class MyButton
                         Case ColorState.Highlight
                             If IsMouseOver Then
                                 '指向（Main 3）
-                                AniStart({AaColor(PanFore, Border.BorderBrushProperty, "ColorBrush3", AnimationColorIn)}, "MyButton Color " & Uuid)
+                                AniStart({AaColor(PanFore, Border.BorderBrushProperty, If(ThemeIsDark, "ColorBrush6", "ColorBrush3"), AnimationColorIn)}, "MyButton Color " & Uuid)
                             Else
-                                '高亮（Main 2）
-                                AniStart({AaColor(PanFore, Border.BorderBrushProperty, "ColorBrush2", AnimationColorOut)}, "MyButton Color " & Uuid)
+                                '高亮（Main 2；深色模式使用更亮的强调色以保证文字对比度）
+                                AniStart({AaColor(PanFore, Border.BorderBrushProperty, If(ThemeIsDark, "ColorBrush5", "ColorBrush2"), AnimationColorOut)}, "MyButton Color " & Uuid)
                             End If
                         Case ColorState.Red
                             If IsMouseOver Then
@@ -119,9 +119,9 @@ Public Class MyButton
                             End If
                         Case ColorState.Highlight
                             If IsMouseOver Then
-                                PanFore.SetResourceReference(Border.BorderBrushProperty, "ColorBrush3")
+                                PanFore.SetResourceReference(Border.BorderBrushProperty, If(ThemeIsDark, "ColorBrush6", "ColorBrush3"))
                             Else
-                                PanFore.SetResourceReference(Border.BorderBrushProperty, "ColorBrush2")
+                                PanFore.SetResourceReference(Border.BorderBrushProperty, If(ThemeIsDark, "ColorBrush5", "ColorBrush2"))
                             End If
                         Case ColorState.Red
                             If IsMouseOver Then

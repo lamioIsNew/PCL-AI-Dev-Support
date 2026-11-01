@@ -11,7 +11,7 @@
         <Grid.RenderTransform>
             <ScaleTransform />
         </Grid.RenderTransform>
-        <Border x:Name="PanColor" CornerRadius="1000" BorderThickness="0.001" Background="{DynamicResource ColorBrush3}">
+        <Border x:Name="PanColor" CornerRadius="1000" BorderThickness="0.001" Background="{DynamicResource ColorBrushAccentStrong}">
             <Border.Effect>
                 <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.2" />
             </Border.Effect>

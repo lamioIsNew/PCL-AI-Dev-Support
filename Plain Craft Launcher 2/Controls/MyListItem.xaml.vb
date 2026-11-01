@@ -317,7 +317,7 @@ Public Class MyListItem
                         .VerticalAlignment = If(Checked, VerticalAlignment.Stretch, VerticalAlignment.Center),
                         .HorizontalAlignment = HorizontalAlignment.Left, .UseLayoutRounding = False, .SnapsToDevicePixels = False,
                         .Margin = If(Checked, New Thickness(-1, 6, 0, 6), New Thickness(-1, 0, 0, 0))}
-                    RectCheck.SetResourceReference(Border.BackgroundProperty, "ColorBrush3")
+                    RectCheck.SetResourceReference(Border.BackgroundProperty, "ColorBrushAccentStrong")
                     SetRowSpan(RectCheck, 4)
                     Children.Add(RectCheck)
                 End If

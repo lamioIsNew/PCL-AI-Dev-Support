@@ -35,6 +35,26 @@ Public Class MyHint
     End Property
     Private _ColorType As Themes = Themes.Red
     Private Sub UpdateUI() Handles Me.Loaded
+        If ThemeIsDark Then
+            Select Case Theme
+                Case Themes.Blue
+                    Background = New MyColor("#1E2C3D")
+                    BorderBrush = New MyColor("#3B82F6")
+                    LabText.Foreground = New MyColor("#BFD7FF")
+                    BtnClose.Foreground = New MyColor("#BFD7FF")
+                Case Themes.Red
+                    Background = New MyColor("#3A2225")
+                    BorderBrush = New MyColor("#EF5350")
+                    LabText.Foreground = New MyColor("#FFC9CC")
+                    BtnClose.Foreground = New MyColor("#FFC9CC")
+                Case Themes.Yellow
+                    Background = New MyColor("#3A2E1F")
+                    BorderBrush = New MyColor("#F59E0B")
+                    LabText.Foreground = New MyColor("#FFD8A8")
+                    BtnClose.Foreground = New MyColor("#FFD8A8")
+            End Select
+            Return
+        End If
         Select Case Theme
             Case Themes.Blue
                 Background = New MyColor("#d9ecff")

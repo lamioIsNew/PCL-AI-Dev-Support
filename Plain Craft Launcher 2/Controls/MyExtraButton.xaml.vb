@@ -177,7 +177,7 @@ Public Class MyExtraButton
                     AniStart(AaColor(PanColor, BackgroundProperty, "ColorBrush4", AnimationColorIn), "MyExtraButton Color " & Uuid)
                 Else
                     '普通
-                    AniStart(AaColor(PanColor, BackgroundProperty, "ColorBrush3", AnimationColorOut), "MyExtraButton Color " & Uuid)
+                    AniStart(AaColor(PanColor, BackgroundProperty, "ColorBrushAccentStrong", AnimationColorOut), "MyExtraButton Color " & Uuid)
                 End If
 
             Else
@@ -188,7 +188,7 @@ Public Class MyExtraButton
                 ElseIf IsMouseOver Then
                     PanColor.SetResourceReference(BackgroundProperty, "ColorBrush4")
                 Else
-                    PanColor.SetResourceReference(BackgroundProperty, "ColorBrush3")
+                    PanColor.SetResourceReference(BackgroundProperty, "ColorBrushAccentStrong")
                 End If
 
             End If

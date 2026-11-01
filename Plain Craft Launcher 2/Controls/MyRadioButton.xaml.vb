@@ -204,7 +204,7 @@ Public Class MyRadioButton
                                          AaColor(ShapeLogo, Shapes.Path.FillProperty, New MyColor(255, 255, 255) - ShapeLogo.Fill, AnimationTimeOfCheck),
                                          AaColor(LabText, TextBlock.ForegroundProperty, New MyColor(255, 255, 255) - LabText.Foreground, AnimationTimeOfCheck)
                                     }, "MyRadioButton Checked " & Uuid)
-                            AniStart(AaColor(Me, BackgroundProperty, "ColorBrush3", AnimationTimeOfCheck), "MyRadioButton Color " & Uuid)
+                            AniStart(AaColor(Me, BackgroundProperty, "ColorBrushAccentStrong", AnimationTimeOfCheck), "MyRadioButton Color " & Uuid)
                         ElseIf IsMouseDown Then
                             '按下
                             AniStart(AaColor(Me, BackgroundProperty, "ColorBrush6", AnimationTimeOfMouseIn), "MyRadioButton Color " & Uuid)
@@ -243,7 +243,7 @@ Public Class MyRadioButton
                         End If
                     Case ColorState.Highlight
                         If Checked Then
-                            SetResourceReference(BackgroundProperty, "ColorBrush3")
+                            SetResourceReference(BackgroundProperty, "ColorBrushAccentStrong")
                             ShapeLogo.Fill = New MyColor(255, 255, 255)
                             LabText.Foreground = New MyColor(255, 255, 255)
                         Else

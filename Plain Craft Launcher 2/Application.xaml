@@ -70,6 +70,7 @@
             <SolidColorBrush x:Key="ColorBrushSidebar" Color="#F1FFFFFF" />
             <SolidColorBrush x:Key="ColorBrushOverlay" Color="#FBFBFB" />
             <SolidColorBrush x:Key="ColorBrushDivider" Color="#22404040" />
+            <SolidColorBrush x:Key="ColorBrushAccentStrong" Color="#0b5bcb" />
 
             <!-- Window -->
             <Style TargetType="{x:Type Window}" x:Key="MyWindow">

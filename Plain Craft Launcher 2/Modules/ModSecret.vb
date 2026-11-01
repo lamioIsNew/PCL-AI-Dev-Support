@@ -67,6 +67,8 @@ Friend Module ModSecret
     Public ColorSidebar As New MyColor(241, 255, 255, 255)
     Public ColorOverlay As New MyColor(251, 251, 251)
     Public ColorDivider As New MyColor(34, 64, 64, 64)
+    '用于需要白色文字/图标的强调色背景（深色模式下保持足够的对比度）
+    Public ColorAccentStrong As New MyColor(11, 91, 203)
 
     Public ThemeNow As Integer = -1
     Public ThemeIsDark As Boolean = False
@@ -81,30 +83,31 @@ Friend Module ModSecret
 
             If ThemeIsDark Then
                 '深色模式：主文字接近白色，强调色保持当前色调，背景为带色调的深灰
-                Color1 = New MyColor(230, 232, 235)
-                Color2 = New MyColor().FromHSL2(ColorHue, ColorSat, 45 + ColorLightAdjust)
-                Color3 = New MyColor().FromHSL2(ColorHue, ColorSat, 52 + ColorLightAdjust)
+                Color1 = New MyColor(238, 240, 243)
+                Color2 = New MyColor().FromHSL2(ColorHue, ColorSat, 62 + ColorLightAdjust)
+                Color3 = New MyColor().FromHSL2(ColorHue, ColorSat, 72 + ColorLightAdjust)
                 Color4 = New MyColor().FromHSL2(ColorHue, ColorSat, 60 + ColorLightAdjust)
-                Color5 = New MyColor().FromHSL2(ColorHue, ColorSat * 0.8, 70 + ColorLightAdjust * 0.4)
+                Color5 = New MyColor().FromHSL2(ColorHue, ColorSat * 0.8, 82 + ColorLightAdjust * 0.4)
                 Color6 = New MyColor().FromHSL(ColorHue, 12, 26)
                 Color7 = New MyColor().FromHSL(ColorHue, 11, 28)
                 Color8 = New MyColor().FromHSL(ColorHue, 10, 18)
                 ColorBg0 = New MyColor().FromHSL2(ColorHue, ColorSat * 0.55, 52 + ColorLightAdjust)
                 ColorBg1 = New MyColor(190, New MyColor().FromHSL(ColorHue, 12, 30))
                 '灰色系反转：Gray1 为浅色文字，Gray8 为深色表面
-                ColorGray1 = New MyColor().FromHSL(ColorHue, 6, 88)
-                ColorGray2 = New MyColor().FromHSL(ColorHue, 6, 72)
-                ColorGray3 = New MyColor().FromHSL(ColorHue, 6, 60)
-                ColorGray4 = New MyColor().FromHSL(ColorHue, 6, 50)
-                ColorGray5 = New MyColor().FromHSL(ColorHue, 7, 40)
-                ColorGray6 = New MyColor().FromHSL(ColorHue, 8, 30)
-                ColorGray7 = New MyColor().FromHSL(ColorHue, 9, 24)
+                ColorGray1 = New MyColor().FromHSL(ColorHue, 6, 92)
+                ColorGray2 = New MyColor().FromHSL(ColorHue, 6, 84)
+                ColorGray3 = New MyColor().FromHSL(ColorHue, 6, 76)
+                ColorGray4 = New MyColor().FromHSL(ColorHue, 6, 68)
+                ColorGray5 = New MyColor().FromHSL(ColorHue, 7, 56)
+                ColorGray6 = New MyColor().FromHSL(ColorHue, 8, 36)
+                ColorGray7 = New MyColor().FromHSL(ColorHue, 9, 26)
                 ColorGray8 = New MyColor().FromHSL(ColorHue, 10, 18)
                 ColorCard = New MyColor(245, New MyColor().FromHSL(ColorHue, 11, 21))
                 ColorInput = New MyColor().FromHSL(ColorHue, 10, 24)
                 ColorSidebar = New MyColor(241, New MyColor().FromHSL(ColorHue, 10, 15))
                 ColorOverlay = New MyColor().FromHSL(ColorHue, 10, 19)
                 ColorDivider = New MyColor(34, Color1)
+                ColorAccentStrong = New MyColor().FromHSL2(ColorHue, ColorSat, 45 + ColorLightAdjust)
             Else
                 '浅色模式：保持原有配色
                 Color1 = New MyColor().FromHSL2(ColorHue, ColorSat * 0.2, 25 + ColorLightAdjust * 0.3)
@@ -130,6 +133,7 @@ Friend Module ModSecret
                 ColorSidebar = New MyColor(241, 255, 255, 255)
                 ColorOverlay = New MyColor(251, 251, 251)
                 ColorDivider = New MyColor(34, Color1)
+                ColorAccentStrong = Color2
             End If
 
             ColorSemiTransparent = New MyColor(1, Color8)
@@ -153,6 +157,7 @@ Friend Module ModSecret
             WriteThemeColor("ColorBrushBackgroundTransparentSidebar", ColorSidebar)
             WriteThemeColor("ColorBrushOverlay", ColorOverlay)
             WriteThemeColor("ColorBrushDivider", ColorDivider)
+            WriteThemeColor("ColorBrushAccentStrong", ColorAccentStrong)
             Application.Current.Resources("ColorBrushHalfWhite") = New SolidColorBrush(If(ThemeIsDark, New MyColor(38, 255, 255, 255), New MyColor(85, 255, 255, 255)))
             Application.Current.Resources("ColorBrushSemiWhite") = New SolidColorBrush(If(ThemeIsDark, New MyColor(51, 255, 255, 255), New MyColor(187, 255, 255, 255)))
             '校验失败等红色背景在深色模式下需要压暗，避免刺眼
